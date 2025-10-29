@@ -1,0 +1,42 @@
+*{
+                margin: 0px;
+                padding: 0px;
+                font-family: Arial, Helvetica, sans-serif;margin: 0px;
+    
+}
+
+div.primeira{
+    display: flex;
+  flex-direction: column; /* Flow: Vertical */
+  width: 100%; /* Fill (1,439px) — geralmente significa ocupar todo o espaço disponível */
+  height: auto; /* Hug — ajusta à altura do conteúdo */
+  
+  padding: 160px 10px 160px 10px; /* Top, Right, Bottom, Left */
+  gap: 64px; /* Espaço entre os elementos filhos */
+  background-color: yellow;
+}
+
+div.segunda{
+    display: flex;
+  flex-direction: column; /* Flow: Vertical */
+  width: 100%; /* Fill (1,439px) → ocupa toda a largura disponível */
+  height: auto; /* Hug (1,362px) → ajusta à altura do conteúdo */
+
+  padding-top: 160px;
+  padding-bottom: 160px;
+  gap: 160px; /* Espaço entre os elementos internos */
+
+  background-color: lightblue; /* Cor de fundo */
+}
+
+div.terceira{
+      display: flex;
+  flex-direction: column; /* Flow: Vertical */
+  width: 100%; /* Fill (1,439px) → ocupa toda a largura disponível */
+  height: auto; /* Hug (373px) → altura ajustável conforme o conteúdo */
+
+  padding: 64px 212px 64px 212px; /* Top | Right | Bottom | Left */
+  gap: 40px; /* Espaço entre os elementos filhos */
+
+  background-color: #550A47; /* Cor de fundo */
+}
