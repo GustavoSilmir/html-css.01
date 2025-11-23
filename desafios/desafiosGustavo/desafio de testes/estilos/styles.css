@@ -1,218 +1,98 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: sans-serif;
-    overflow-x: hidden;
-}
-
-.main-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
+/* Estilos globais/fundo */
+.fundo-quadriculado {
+    /* Cor de fundo escura */
+    background-color: #1e1e1e;
+    /* Adiciona uma textura simulada de quadrados (pode ser substituída por uma imagem real) */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 8px
+    );
+    /* Define o tamanho e usa Flexbox para centralizar tudo */
+    width: 100vw; /* Ajuste conforme necessário */
+    height: 300px; /* Ajuste conforme necessário */
     display: flex;
-
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    position: relative; /* Para posicionar o texto lateralmente */
     padding: 20px;
 }
 
-.content-wrapper {
+/* Container do texto lateral */
+.programa-de-container {
+    border: 2px solid white;
+   
+    
+    
+    left: 100px; /* Distância da borda esquerda */
+    /* Usamos Flexbox para centralizar o texto invertido verticalmente */
     display: flex;
-    gap: 4.5vw;
-    max-width: 1109px;
-    width: 90vw;
-    max-height: 90vh;
-    height: 100%;
+    align-items: flex-start;
+    height: 100%; /* Ocupa a altura do container principal */
 }
 
-.col-esquerda {
-    flex-basis: 45.3%;
-    flex-shrink: 0;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    position: relative;
-    overflow: hidden;
+/* O Estilo que Inverte o Texto */
+.texto-invertido {
+    color: white; /* Amarelo */
+    
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap; /* Impede quebras de linha */
+
+    /* 1. Alinha o texto na vertical, da direita para a esquerda (bottom-to-top) */
+    writing-mode: vertical-rl;
+    
+    /* 2. Inverte o texto verticalmente para simular o efeito do seu layout.
+          Nota: O transform: scaleY(-1) inverte o texto "para cima" e não "ao contrário" como na imagem, 
+          mas é a forma mais próxima em CSS puro para essa leitura.
+          Se quiser o texto realmente de cabeça para baixo use rotate(180deg) 
+          e ajuste a posição com margin ou padding.
+    */
+    transform: scaleY(1);
+    transform: rotate(-180deg);
 }
 
-.col-direita {
-    flex-basis: 54.7%;
-    height: 100%;
+/* Estilos do texto "FIDELIDADE" */
+.fidelidade-texto {
+    display: flex;
+    flex-direction: column; /* Coloca as partes uma abaixo da outra */
+    text-align: center;
+    line-height: 0.8; /* Diminui o espaçamento entre as linhas */
+    color: #ffc107; /* Amarelo */
+    font-weight: bold;
+    font-size: 48px; /* Tamanho da fonte grande */
+    text-shadow: 
+        -2px -2px 0 #333,  /* Contorno escuro superior/esquerdo */
+        2px 2px 0 #333;   /* Contorno escuro inferior/direito */
+}
+
+/* Ajustes de espaçamento/letras (opcional para simular o bloco) */
+.fidelidade-texto span {
+    padding: 2px 0;
+}
+
+.lado-direito{
+    width: 150px;
+    height: 250px;
+    border: 2px solid red;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
     justify-content: space-between;
 }
 
-.text-vertical {
-    font-size: 1.5vw;
-    color: #fff;
-    transform: rotate(-90deg);
-    transform-origin: bottom left;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    white-space: nowrap;
-    padding-bottom: 0.5vw;
-    font-weight: 500;
-    text-transform: lowercase;
+
+.logo{
+    width: 100px;
+    height: 100px;
+    background-color: white;
 }
 
-.text-fidelidade {
-    font-size: calc(8vw + 30px);
-    max-font-size: 150px;
-    font-weight: 900;
-    color: #ff9900;
-    line-height: 0.8;
-    text-align: right;
-    margin-left: 5vw;
-}
-
-.logo-container {
-    width: 100%;
-    flex-basis: 57.5%;
-    flex-grow: 1;
-    flex-shrink: 1;
-}
-
-.logo-svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.cashback-box {
-    width: 100%;
-    flex-basis: 42.5%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    background-color: #c70000;
-    border-radius: 10px;
-    padding: 2vw;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.cashback-text {
-    color: #fff;
-    font-size: 1.2vw;
-    line-height: 1.2;
-    margin-bottom: 1.5vw;
-}
-
-.cashback-percent {
-    font-size: 4vw;
-    max-font-size: 72px;
-    font-weight: 900;
-}
-
-.saiba-mais-btn {
-    background-color: #ff9900;
-    color: #000;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: lowercase;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-.sections-container {
-    width: 100vw;
-}
-
-.section-2, .section-3, .section-4 {
-    width: 100vw;
-    height: 100vh;
-    border-top: 1px solid #333;
-}
-
-@media (max-width: 1100px) {
-    .content-wrapper {
-        gap: 30px;
-    }
-
-    .text-vertical {
-        font-size: 20px;
-        padding-bottom: 5px;
-    }
-
-    .text-fidelidade {
-        font-size: 10vw;
-    }
-
-    .cashback-percent {
-        font-size: 6vw;
-    }
-
-    .cashback-text {
-        font-size: 2vw;
-    }
-}
-
-@media (max-width: 768px) {
-    /* ... (outros estilos mantidos) ... */
-    
-    .main-container {
-        height: 100vh; /* Volta a 100vh para tentar conter na altura da tela */
-        max-height: 100vh; /* Garante que não ultrapasse 100% da tela */
-        padding: 40px 20px;
-        /* Adiciona overflow-y: auto se o conteúdo DEVE ser maior que a tela e rolar */
-        /* Se a ideia é CABER na tela, mantenha o overflow padrão (hidden) */
-    }
-    
-    .content-wrapper {
-        flex-direction: column;
-        width: 100%;
-        max-width: 95%;
-        height: 100%; /* Permite que o wrapper use a altura total do main-container */
-        /* Reduz o gap para apertar os elementos */
-        gap: 20px; 
-    }
-    
-    /* ... (Estilos de .col-esquerda e .text-fidelidade mantidos) ... */
-
-    /* A Coluna Direita (logo e cashback) deve usar flex para dividir o espaço restante */
-    .col-direita {
-        width: 100%;
-        height: auto;
-        /* Usa flex para que o logo e a caixa de cashback dividam o espaço */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around; /* Distribui o espaço */
-        flex-grow: 1; /* Permite que a coluna direita ocupe o espaço restante */
-    }
-
-    .logo-container {
-        /* Define uma altura mais controlada para a logo no celular */
-        height: 30vw; 
-        max-height: 200px;
-        margin-bottom: 0; /* Remove a margem para economizar espaço */
-        flex-basis: auto;
-        flex-shrink: 0; /* Não permite que a logo encolha desproporcionalmente */
-    }
-    
-    .cashback-box {
-        flex-basis: auto;
-        height: auto;
-        padding: 15px; /* Reduz o padding */
-        min-height: 150px; /* Reduz a altura mínima */
-    }
-    
-    .cashback-percent {
-        font-size: 36px; /* Diminui a fonte do percentual */
-    }
-    
-    .cashback-text {
-        font-size: 14px; /* Diminui a fonte do texto */
-        margin-bottom: 5px; /* Reduz a margem */
-    }
+.caixa{
+    width: 100px;
+    height: 100px;
+    background-color: white;
 }
